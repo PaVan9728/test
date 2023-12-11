@@ -1,6 +1,1 @@
-[# test](https://2.na.dl.wireshark.org/win64/Wireshark-4.2.0-x64.exe)
-https://2.na.dl.wireshark.org/win64/Wireshark-4.2.0-x64.exe
-
-https://excellmedia.dl.sourceforge.net/project/echomirage.oldbutgold.p/EchoMirage-3.1.exe
-
-https://excellmedia.dl.sourceforge.net/project/processhacker/processhacker2/processhacker-2.39-setup.exe
+The application allows users to connect to it over unencrypted  LDAP connections. An attacker suitably positioned to view a legitimate user's network traffic could record and monitor their interactions with the application and obtain any information the user supplies. 
