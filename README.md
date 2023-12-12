@@ -1,1 +1,19 @@
-The application allows users to connect to it over unencrypted  LDAP connections. An attacker suitably positioned to view a legitimate user's network traffic could record and monitor their interactions with the application and obtain any information the user supplies. 
+#!/bin/bash
+
+# Check if a file is provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <filename>"
+    exit 1
+fi
+
+file_path=$1
+
+# Check if the file exists
+if [ ! -f "$file_path" ]; then
+    echo "Error: File not found."
+    exit 1
+fi
+
+# Use grep to extract ASCII strings
+echo "Strings in $file_path:"
+grep -a -o -P '[\x20-\x7e]{4,}' "$file_path"
