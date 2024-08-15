@@ -11,3 +11,12 @@ browsers implement this in an unsafe way that allows an attacker to downgrade a 
 • NIST has determined that SSL 3.0 is no longer acceptable for secure communications. As of the
 date of enforcement found in PCI DSS v3.1, any version of SSL will not meet the PCI SSC's
 definition of 'strong cryptography'.
+
+
+
+MITIGATION -
+• Consult the application's documentation to disable SSL 2.0 and 3.0.
+• Use TLS 1.2 (with approved cipher suites) or higher instead.
+REFERENCE -
+• https://www.schneier.com/academic/paperfiles/paper-ssl.pdf
+• http://www.nessus.org/u?b06c7e95
