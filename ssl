@@ -1,0 +1,20 @@
+#!/bin/bash
+# File containing the list of IPs (one IP per line)
+IP_LIST="ips.txt"
+# Output directory for the testssl results
+OUTPUT_DIR="testssl_results"
+# Create the output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+# Function to run testssl on a single IP
+run_testssl() {
+    local ip="$1"
+    local output_file="$OUTPUT_DIR/testssl_$ip.txt"
+    echo "Running testssl on $ip"
+    testssl.sh "$ip" > "$output_file"
+    echo "Results saved to $output_file"
+}
+# Read IPs from the file and run testssl on each
+while IFS= read -r ip; do
+    run_testssl "$ip"
+done < "$IP_LIST"
+echo "All tests completed."
