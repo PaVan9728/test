@@ -1,20 +1,13 @@
-#!/bin/bash
-# File containing the list of IPs (one IP per line)
-IP_LIST="ips.txt"
-# Output directory for the testssl results
-OUTPUT_DIR="testssl_results"
-# Create the output directory if it doesn't exist
-mkdir -p "$OUTPUT_DIR"
-# Function to run testssl on a single IP
-run_testssl() {
-    local ip="$1"
-    local output_file="$OUTPUT_DIR/testssl_$ip.txt"
-    echo "Running testssl on $ip"
-    testssl.sh "$ip" > "$output_file"
-    echo "Results saved to $output_file"
-}
-# Read IPs from the file and run testssl on each
-while IFS= read -r ip; do
-    run_testssl "$ip"
-done < "$IP_LIST"
-echo "All tests completed."
+The remote service accepts connections encrypted using SSL 2.0 or SSL 3.0. Version of SSL are
+affected by several cryptographic flaws, including:
+• An insecure padding scheme with CBC ciphers.
+• Insecure session renegotiation and resumption schemes. An attacker can exploit these flaws to
+conduct man-in-the-middle attacks or to decrypt communications between the affected service
+and clients.
+• Although SSL/TLS has a secure means for choosing the highest supported version of the protocol
+(so that these versions will be used only if the client or server support nothing better), many web
+browsers implement this in an unsafe way that allows an attacker to downgrade a connection
+(such as in POODLE). Therefore, it is recommended that these protocols be disabled entirely.
+• NIST has determined that SSL 3.0 is no longer acceptable for secure communications. As of the
+date of enforcement found in PCI DSS v3.1, any version of SSL will not meet the PCI SSC's
+definition of 'strong cryptography'.
